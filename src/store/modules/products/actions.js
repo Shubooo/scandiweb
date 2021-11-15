@@ -2,20 +2,22 @@ import axios from "axios";
 
 export default {
   async getProducts({ commit }) {
-    const { data } = await axios.get("http://localhost:8000/products");
+    const { data } = await axios.get(
+      "https://scanditest2021.000webhostapp.com/index.php/products"
+    );
     commit("SET_PRODUCTS", data);
   },
 
   async deleteProducts({ state }) {
     const { data } = await axios.post(
-      "http://localhost:8000/delete",
+      "https://scanditest2021.000webhostapp.com/index.php/delete",
       state.dProducts
     );
     return data;
   },
   async addProduct({ state }) {
     const { data } = await axios.post(
-      "http://localhost:8000/add",
+      "https://scanditest2021.000webhostapp.com/index.php/add",
       state.addProduct
     );
     return data;
