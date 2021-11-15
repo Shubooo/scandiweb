@@ -3,30 +3,26 @@ import axios from "axios";
 export default {
   async getProducts({ commit }) {
     const { data } = await axios.get(
-      "https://scandiwebtest2022.000webhostapp.com/index.php/products"
+      "http://d04e-212-58-120-36.ngrok.io/products"
     );
     commit("SET_PRODUCTS", data);
   },
 
   async deleteProducts({ state }) {
     const { data } = await axios.post(
-      "https://scandiwebtest2022.000webhostapp.com/index.php/delete",
+      "http://d04e-212-58-120-36.ngrok.io/delete",
       state.dProducts
     );
     return data;
   },
   addProduct({ state }) {
-    const data = fetch(
-      "https://scandiwebtest2022.000webhostapp.com/index.php/add",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Host: "https://scandiwebtest2022.000webhostapp.com",
-        },
-        body: JSON.stringify(state.addProduct),
-      }
-    )
+    const data = fetch("http://d04e-212-58-120-36.ngrok.io/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state.addProduct),
+    })
       .then((response) => response.json())
       .then((data) => {
         return data;
