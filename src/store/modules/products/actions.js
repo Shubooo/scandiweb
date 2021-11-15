@@ -16,10 +16,16 @@ export default {
     return data;
   },
   async addProduct({ state }) {
-    const { data } = await axios.post(
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: state.addProduct }),
+    };
+    const response = await fetch(
       "https://scanditest2021.000webhostapp.com/index.php/add",
-      state.addProduct
+      requestOptions
     );
+    const data = await response.json();
     return data;
   },
 };
