@@ -15,7 +15,6 @@ export default {
     async addProduct() {
       this.$store.commit("SET_ERRORS", []);
       const data = await this.$store.dispatch("addProduct");
-      console.log(data.message);
       if (data.code === 400) {
         this.$store.commit("SET_ERRORS", data.message);
       } else {

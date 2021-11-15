@@ -15,11 +15,22 @@ export default {
     );
     return data;
   },
-  async addProduct({ state }) {
-    const { data } = await axios.post(
+  addProduct({ state }) {
+    const data = fetch(
       "https://scandiwebtest2022.000webhostapp.com/index.php/add",
-      state.addProduct
-    );
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state.addProduct),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      });
+
     return data;
   },
 };
