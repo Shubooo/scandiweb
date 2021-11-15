@@ -3,14 +3,14 @@ import axios from "axios";
 export default {
   async getProducts({ commit }) {
     const { data } = await axios.get(
-      "https://scanditest2021.000webhostapp.com/index.php/products"
+      "https://scanditest2021.000webhostapp.com/products"
     );
     commit("SET_PRODUCTS", data);
   },
 
   async deleteProducts({ state }) {
     const { data } = await axios.post(
-      "https://scanditest2021.000webhostapp.com/index.php/delete",
+      "https://scanditest2021.000webhostapp.com/delete",
       state.dProducts
     );
     return data;
@@ -22,7 +22,7 @@ export default {
       body: JSON.stringify({ title: state.addProduct }),
     };
     const response = await fetch(
-      "https://scanditest2021.000webhostapp.com/index.php/add",
+      "https://scanditest2021.000webhostapp.com/add",
       requestOptions
     );
     const data = await response.json();
