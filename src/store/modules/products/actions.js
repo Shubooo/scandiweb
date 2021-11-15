@@ -20,6 +20,8 @@ export default {
       "https://scandiwebtest2022.000webhostapp.com/index.php/add",
       {
         method: "POST",
+        mode: "same-origin",
+        credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
         },
