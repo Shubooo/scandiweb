@@ -3,20 +3,20 @@ import axios from "axios";
 export default {
   async getProducts({ commit }) {
     const { data } = await axios.get(
-      "https://d04e-212-58-120-36.ngrok.io/products"
+      "https://scandiwebtest2022.000webhostapp.com/products"
     );
     commit("SET_PRODUCTS", data);
   },
 
   async deleteProducts({ state }) {
     const { data } = await axios.post(
-      "https://d04e-212-58-120-36.ngrok.io/delete",
+      "https://scandiwebtest2022.000webhostapp.com/delete",
       state.dProducts
     );
     return data;
   },
   addProduct({ state }) {
-    const data = fetch("https://d04e-212-58-120-36.ngrok.io/add", {
+    const data = fetch("https://scandiwebtest2022.000webhostapp.com/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
